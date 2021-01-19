@@ -29,7 +29,6 @@ def plot_critical_vs_non(data: pd.DataFrame):
 def worst_offenders(data: pd.DataFrame):
     data['violations'] = data['NUMCRITICAL'] + data['NUMNONCRITICAL']
     groups = data[['NAME', 'NUMCRITICAL', 'NUMNONCRITICAL', 'violations']].groupby(by='NAME').sum()
-    print("Most Violations")
     print(groups.sort_values(by='violations', ascending=False).head(5))
 
     print('\n=== Data Stats ===')
